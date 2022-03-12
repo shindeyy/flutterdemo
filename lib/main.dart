@@ -5,6 +5,49 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _WidgetDemo extends State<MyHomePage>{
+  bool _switchValue = false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(
+      title: Text(widget.title),
+    ),
+      body: Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Slider.adaptive(
+              value: 1, 
+              onChanged: (double newValue){
+                setState(() {
+                    newValue;
+                });
+              }),
+          SwitchListTile.adaptive(
+              value: true,
+              title: const Text("Apply"),
+              onChanged: (bool newValue){
+                setState(() {
+                  newValue;
+                });
+              }),
+          Switch.adaptive(
+              value: _switchValue,
+              onChanged: (bool newValue){
+                  setState(() {
+                    _switchValue = newValue;
+                  });
+            }),
+          Icon(
+            Icons.adaptive.share
+          ),
+          const CircularProgressIndicator.adaptive()
+        ],
+    ),),);
+    throw UnimplementedError();
+  }
+
+}
+
 class _StepperDemo extends State<MyHomePage>{
   int _currentSteps = 0;
 
@@ -86,7 +129,8 @@ class _DatePickerDemo extends State<MyHomePage>{
   Widget build(BuildContext context) {
     return Scaffold(appBar: AppBar(
       title: Text(widget.title),
-    ), body: Center(child: Column(
+    ),
+      body: Center(child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
@@ -183,6 +227,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _StepperDemo();
+  State<MyHomePage> createState() => _WidgetDemo();
 }
 
