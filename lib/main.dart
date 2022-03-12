@@ -5,6 +5,80 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _StepperDemo extends State<MyHomePage>{
+  int _currentSteps = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(title:
+          Text(widget.title),),
+          body: Center(child: Stepper(steps: const [
+            Step(
+                title: Text("Step 1"),
+                content: Text("Info for step 1")
+            ),
+            Step(
+                title: Text("Step 2"),
+                content: Text("Info for step 2")
+            ),
+            Step(
+                title: Text("Step 3"),
+                content: Text("Info for step 3")
+            ),
+            Step(
+                title: Text("Step 4"),
+                content: Text("Info for step 4")
+            ),
+            Step(
+                title: Text("Step 5"),
+                content: Text("Info for step 5")
+            ),
+            Step(
+                title: Text("Step 6"),
+                content: Text("Info for step 6")
+            ),
+            Step(
+                title: Text("Step 7"),
+                content: Text("Info for step 7")
+            ),
+            Step(
+                title: Text("Step 8"),
+                content: Text("Info for step 8")
+            ),
+            Step(
+                title: Text("Step 9"),
+                content: Text("Info for step 9")
+            )
+          ],
+            onStepTapped: (int newIndex){
+              setState(() {
+                _currentSteps = newIndex;
+              });
+            },
+            currentStep: _currentSteps,
+            onStepContinue: (){
+                if(_currentSteps!=8){
+                  setState(() {
+                    _currentSteps+=1;
+                  });
+                }
+            },
+            onStepCancel: (){
+                if(_currentSteps!=0){
+                    setState(() {
+                      _currentSteps-=1;
+                    });
+                }
+            },
+          ),
+        ),
+    );
+    throw UnimplementedError();
+  }
+
+}
+
 class _DatePickerDemo extends State<MyHomePage>{
   DateTime? _dateTime = DateTime(2021);
 
@@ -109,6 +183,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _DatePickerDemo();
+  State<MyHomePage> createState() => _StepperDemo();
 }
 
