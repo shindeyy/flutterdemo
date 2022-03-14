@@ -5,6 +5,34 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _AppBar extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: CustomScrollView(
+      slivers: [
+        const SliverAppBar(
+          pinned: true,
+          floating: true,
+          snap: false,
+          title: Text("Fittr"),
+          expandedHeight: 130.0,
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text("Test"),
+            centerTitle: true,
+          ),
+        ),
+        SliverList(delegate: SliverChildListDelegate([
+            const Text("Fittr test",
+            style: TextStyle(fontSize: 1800),),
+        ]))
+      ],
+    ),);
+    throw UnimplementedError();
+  }
+
+}
+
 class _ChoiceChip extends State<MyHomePage>{
   bool _isSelected = false;
   @override
@@ -249,6 +277,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _ChoiceChip();
+  State<MyHomePage> createState() => _AppBar();
 }
 
