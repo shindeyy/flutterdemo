@@ -5,6 +5,28 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _ChoiceChip extends State<MyHomePage>{
+  bool _isSelected = false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: Center(
+        child: ChoiceChip(label: const Text("Choice chip"),
+                selected: _isSelected,
+                selectedColor: Colors.lightBlueAccent,
+                onSelected: (newSelected) {
+                    setState(() {
+                      _isSelected = newSelected;
+                    });
+                },),
+    ),);
+    throw UnimplementedError();
+  }
+
+}
+
 class _WidgetDemo extends State<MyHomePage>{
   bool _switchValue = false;
   @override
@@ -227,6 +249,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _WidgetDemo();
+  State<MyHomePage> createState() => _ChoiceChip();
 }
 
