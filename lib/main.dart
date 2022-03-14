@@ -12,6 +12,8 @@ class _Expandable extends State<MyHomePage>{
       title: Text(widget.title),
       ),
     body: const ExpansionTile(title: Text("See more"),
+    leading: Icon(Icons.info),
+    backgroundColor: Colors.grey,
     children: [
       ListTile(title: Text("1")),
       ListTile(title: Text("2")),
