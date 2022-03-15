@@ -5,6 +5,37 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _BottomView extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(
+      title: Text(widget.title),
+    ),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text("Bottomsheet"),
+          onPressed: (){
+            showModalBottomSheet(context: context, builder: (BuildContext context){
+                return SizedBox(
+                        height: 400,
+                        child: Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text("Close"),
+                            ),
+                         ),
+            );
+          });
+          },
+        ),
+    )
+      ,);
+    throw UnimplementedError();
+  }
+}
+
 class _Expandable extends State<MyHomePage>{
   @override
   Widget build(BuildContext context) {
@@ -296,6 +327,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _Expandable();
+  State<MyHomePage> createState() => _BottomView();
 }
 
