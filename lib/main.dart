@@ -15,23 +15,20 @@ class _SizeDemo extends State<MyHomePage>{
       body: Center(
         child: Column(
           children: [
-            Expanded(
-                flex: 1,
+            Flexible(
                 child: Container(
                   color: Colors.blue,
                   height: 200,
                 ),
 
             ),
-            Expanded(
-              flex: 2,
+            Flexible(
               child: Container(
                 color: Colors.red,
                 height: 200,
               ),
             ),
-            Expanded(
-              flex: 1,
+            Flexible(
               child: Container(
                 color: Colors.cyan,
                 height: 200,
