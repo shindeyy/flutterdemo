@@ -5,6 +5,47 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _SizeDemo extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Expanded(
+                flex: 1,
+                child: Container(
+                  color: Colors.blue,
+                  height: 200,
+                ),
+
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                color: Colors.red,
+                height: 200,
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.cyan,
+                height: 200,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+    throw UnimplementedError();
+  }
+
+}
+
 class _AnnimatedCrossFade extends State<MyHomePage>{
   bool _Bool = true;
   @override
@@ -359,6 +400,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _AnnimatedCrossFade();
+  State<MyHomePage> createState() => _SizeDemo();
 }
 
