@@ -5,6 +5,38 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _AnnimatedCrossFade extends State<MyHomePage>{
+  bool _Bool = true;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: [
+          TextButton(onPressed: (){
+            setState(() {
+              _Bool = !_Bool;
+            });
+          }, child: const Text("Switch",
+            style: TextStyle(
+              color: Colors.white
+            ),
+          ))
+        ],
+      ),
+      body: Center(
+        child: AnimatedCrossFade(
+          firstChild: const Text("Ok"),
+          secondChild: const Text("data"),
+          crossFadeState: _Bool ? CrossFadeState.showFirst: CrossFadeState.showSecond,
+          duration: const Duration(seconds: 1),
+        ),
+      ),);
+    throw UnimplementedError();
+  }
+
+}
+
 class _BottomView extends State<MyHomePage>{
   @override
   Widget build(BuildContext context) {
@@ -327,6 +359,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _BottomView();
+  State<MyHomePage> createState() => _AnnimatedCrossFade();
 }
 
