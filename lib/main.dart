@@ -1,8 +1,29 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
   //runApp(const _TimePickerDemo());
+}
+
+class _GridPaper extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: const SizedBox(
+      height: double.infinity,
+      width: double.infinity,
+      child: GridPaper(
+        color: Colors.blue,
+        interval: 200,
+        subdivisions: 5,
+      ),
+    ),);
+  }
+
 }
 
 class _FutureDemo extends State<MyHomePage>{
@@ -438,6 +459,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _FutureDemo();
+  State<MyHomePage> createState() => _GridPaper();
 }
 
