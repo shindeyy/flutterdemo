@@ -7,6 +7,33 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _CheckedBoxList extends State<MyHomePage>{
+  bool? _isChecked = false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(
+      title: Text(widget.title),
+    ),
+    body: Center(
+      child: CheckboxListTile(
+        title: const Text("Check list title"),
+        value: _isChecked,
+        activeColor: Colors.blue,
+        checkColor: Colors.white,
+        tristate: true,
+        subtitle: Text("This is subtitle"),
+        controlAffinity: ListTileControlAffinity.leading,
+        onChanged: (bool? newValue){
+          setState(() {
+            _isChecked = newValue;
+          });
+        },
+      ),
+    ),);
+  }
+
+}
+
 class _TableRow extends State<MyHomePage>{
   @override
   Widget build(BuildContext context) {
@@ -527,6 +554,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _TableRow();
+  State<MyHomePage> createState() => _CheckedBoxList();
 }
 
