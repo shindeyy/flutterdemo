@@ -7,6 +7,35 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _AlertDialog extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: AppBar(
+      title:
+      Text(widget.title),
+    ),
+      body: Center(
+          child: ElevatedButton(
+            child: Text("Show alert dialog"),
+            onPressed: (){
+              showDialog(context: context, builder: (context) => AlertDialog(
+                  actions: [
+                    TextButton(onPressed: (){
+                      Navigator.of(context).pop();
+                    }, child: Text("Close"))
+                  ],
+                title: Text("Flutter mapp"),
+                contentPadding: const EdgeInsets.all(20),
+                content: const Text("This is alert dialog"),
+              ));
+            },
+          ),
+      ),
+    );
+  }
+
+}
+
 class _GridPaper extends State<MyHomePage>{
   @override
   Widget build(BuildContext context) {
@@ -459,6 +488,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _GridPaper();
+  State<MyHomePage> createState() => _AlertDialog();
 }
 
