@@ -7,6 +7,45 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _TableRow extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    TableRow _tableRow = const TableRow(
+      children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Text("Cell 1"),
+          ),
+        Padding(
+          padding: EdgeInsets.all(20),
+          child: Text("Cell 2"),
+        ),
+        Padding(
+          padding: EdgeInsets.all(20),
+          child: Text("Cell 3"),
+        ),
+      ]
+    );
+
+    return Scaffold(appBar: AppBar(
+      title: Text(widget.title),
+    ),body: Center(
+      child: Table(
+        border: TableBorder.all(color: Colors.blueAccent),
+        defaultColumnWidth: const FixedColumnWidth(120),
+        children: <TableRow>[
+          _tableRow,
+          _tableRow,
+          _tableRow,
+          _tableRow,
+          _tableRow,
+        ],
+      ),
+    ),);
+  }
+
+}
+
 class _AlertDialog extends State<MyHomePage>{
   @override
   Widget build(BuildContext context) {
@@ -488,6 +527,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _AlertDialog();
+  State<MyHomePage> createState() => _TableRow();
 }
 
