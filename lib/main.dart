@@ -1,10 +1,35 @@
 import 'dart:ffi';
 
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
   //runApp(const _TimePickerDemo());
+}
+
+class _CurvedNavigationBar extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.blueAccent,
+          items: const <Widget>[
+            Icon(Icons.add, size: 30),
+            Icon(Icons.list, size: 30),
+            Icon(Icons.compare_arrows, size: 30),
+            Icon(Icons.back_hand, size: 30),
+          ],
+        onTap: (index){
+
+        },
+      ),
+      body: Container(
+        color: Colors.blueAccent,
+      ),
+    );
+  }
+
 }
 
 class _CheckedBoxList extends State<MyHomePage>{
@@ -554,6 +579,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _CheckedBoxList();
+  State<MyHomePage> createState() => _CurvedNavigationBar();
 }
 
