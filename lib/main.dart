@@ -5,6 +5,47 @@ void main() {
   //runApp(const _TimePickerDemo());
 }
 
+class _FutureDemo extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar:
+      AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: FutureBuilder(future:
+          getData(),
+          builder: (context, snapshot){
+              if(snapshot.connectionState == ConnectionState.waiting){
+                    return const CircularProgressIndicator.adaptive();
+              }
+              if(snapshot.hasError){
+                  return Text(snapshot.error.toString());
+              }
+              else {
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(snapshot.data.toString()),
+                      ElevatedButton(onPressed:(){
+                        setState(() {});
+                        }, child: const Text("Refresh"))
+                    ],
+                  );
+              }
+          },
+        ),
+    ),
+    );
+  }
+}
+
+Future<String> getData() async {
+  await Future.delayed(const Duration(seconds: 1));
+      //throw "An error occured";
+      return "It works";
+}
+
 class _SizeDemo extends State<MyHomePage>{
   @override
   Widget build(BuildContext context) {
@@ -397,6 +438,6 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _SizeDemo();
+  State<MyHomePage> createState() => _FutureDemo();
 }
 
