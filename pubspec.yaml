@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar: ^1.0.3 #latest version
   qr_flutter: ^4.0.0
+  lottie: ^1.2.2
 
 dev_dependencies:
   flutter_test:
