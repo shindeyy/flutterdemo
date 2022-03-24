@@ -104,6 +104,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "qr",
+      "rootUri": "file:///Users/yogesh/development/flutter/.pub-cache/hosted/pub.dartlang.org/qr-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "qr_flutter",
+      "rootUri": "file:///Users/yogesh/development/flutter/.pub-cache/hosted/pub.dartlang.org/qr_flutter-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/yogesh/development/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -164,7 +176,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-03-19T11:11:46.418439Z",
+  "generated": "2022-03-19T11:44:23.950989Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }
